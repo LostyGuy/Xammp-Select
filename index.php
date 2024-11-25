@@ -1,36 +1,22 @@
 <?php
-require "./conn.php";
 
-$conn = new mysqli(hostname: $servername, username: $username, password: $password, database: $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed". $conn->connect_error);
-}
 ?>
 <!DOCKTYPE HTML>
+<html>
 <head>
 <title>BrainShower</title>
 </head>
 <body>
-<table border="1">
+<table style="border: solid 1px black">
     <tr>
-        <td>users</td>
-        <td>products</td>
-        <td>orders</td>
-        <td>categories</td>
+        <td><a href="developers/index.php">Developers</a></td>
+        <td><a href="games/index.php">Games</a></td>
+        <td><a href="platform/index.php">Platform</a></td>
+        <td><a href="publishers/index.php">Publishers</a></td>
+        <td><a href="tags/index.php">Tags</a></td>
+        <td><a href="users/index.php">Users</a></td>
+        
     </tr>
 </table>
-    <?php
-    echo '<table>';
-    echo '<tr>';
-     $tables = 'SHOW TABLES';
-     $result = $conn->query($tables);
-     while ($row = $result->fetch_assoc()) {
-     echo '<td>';
-     echo '';
-     echo '</td>';
-    };
-    echo '</tr';
-    echo '</table>';
-    ?>
 </body>
+</html>
