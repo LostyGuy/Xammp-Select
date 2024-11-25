@@ -1,28 +1,27 @@
 <?php
-require "./conn.php";
-
-$conn = new mysqli(hostname: $servername, username: $username, password: $password, database: $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed". $conn->connect_error);
-}
+    require ('../conn.php')
 ?>
 <!DOCKTYPE HTML>
 <html>
-<head>
-<title>BrainShower</title>
-</head>
-<body>
-<table style="border: solid 1px black">
-    <tr>
-        <td><a href="developers/index.php">Developers</a></td>
-        <td><a href="games/index.php">Games</a></td>
-        <td><a href="platform/index.php">Platform</a></td>
-        <td><a href="publishers/index.php">Publishers</a></td>
-        <td><a href="tags/index.php">Tags</a></td>
-        <td><a href="users/index.php">Users</a></td>
+    <head>
+
+    </head>
+    <body>
+
+    <?php
+        echo '<table style="border: solid 1px black">';
+        $select_game = "select * from games";
+        $game_res = $conn->query($select_game);
         
-    </tr>
-</table>
-</body>
+        if ($game_res -> num_rows > 0) {
+            while ($row = $game_res -> fetch_assoc()) {
+                $index = $row['ID'];
+                echo '<td>';
+                echo "<a href='./show.php?id=" . $index . "'>" . $row['TITLE'] . "</a>";
+                echo '</td>';
+            };
+        };
+        echo '</table>';
+    ?>
+    </body>
 </html>
