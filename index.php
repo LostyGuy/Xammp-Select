@@ -7,6 +7,7 @@
 <title>BrainShower</title>
 </head>
 <body>
+<h1>MAIN LOBBY</h1>
 <table style="border: solid 1px black">
     <tr>
         <td><a href="developers/index.php">Developers</a></td>
