@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.2.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Dec 01, 2024 at 12:03 PM
--- Server version: 10.4.32-MariaDB
--- PHP Version: 8.2.12
+-- Generation Time: Dec 01, 2024 at 07:42 PM
+-- Server version: 10.4.24-MariaDB
+-- PHP Version: 8.1.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -29,7 +29,7 @@ SET time_zone = "+00:00";
 
 CREATE TABLE `developers` (
   `ID` int(100) NOT NULL,
-  `NAME` varchar(100) NOT NULL
+  `NAME` varchar(100) COLLATE utf8mb4_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
@@ -53,7 +53,7 @@ INSERT INTO `developers` (`ID`, `NAME`) VALUES
 
 CREATE TABLE `games` (
   `ID` int(100) NOT NULL,
-  `TITLE` varchar(255) NOT NULL,
+  `TITLE` varchar(255) COLLATE utf8mb4_polish_ci NOT NULL,
   `TAG` int(100) NOT NULL,
   `DEVELOPER` int(100) NOT NULL,
   `PUBLISHER` int(100) NOT NULL,
@@ -82,7 +82,7 @@ INSERT INTO `games` (`ID`, `TITLE`, `TAG`, `DEVELOPER`, `PUBLISHER`, `PLATFORM`)
 
 CREATE TABLE `platform` (
   `ID` int(100) NOT NULL,
-  `NAME` varchar(255) NOT NULL
+  `NAME` varchar(255) COLLATE utf8mb4_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
@@ -103,7 +103,7 @@ INSERT INTO `platform` (`ID`, `NAME`) VALUES
 
 CREATE TABLE `publishers` (
   `ID` int(100) NOT NULL,
-  `NAME` varchar(255) NOT NULL
+  `NAME` varchar(255) COLLATE utf8mb4_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
@@ -127,7 +127,7 @@ INSERT INTO `publishers` (`ID`, `NAME`) VALUES
 
 CREATE TABLE `tags` (
   `ID` int(100) NOT NULL,
-  `NAME` varchar(255) NOT NULL
+  `NAME` varchar(255) COLLATE utf8mb4_polish_ci NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
 
 --
@@ -151,11 +151,19 @@ INSERT INTO `tags` (`ID`, `NAME`) VALUES
 
 CREATE TABLE `users` (
   `ID` int(100) NOT NULL,
-  `NAME` varchar(255) NOT NULL,
-  `PASSWORD` varchar(255) NOT NULL,
-  `EMAIL` varchar(255) NOT NULL,
+  `NAME` varchar(255) COLLATE utf8mb4_polish_ci NOT NULL,
+  `PASSWORD` varchar(255) COLLATE utf8mb4_polish_ci NOT NULL,
+  `EMAIL` varchar(255) COLLATE utf8mb4_polish_ci NOT NULL,
   `YEAR_OLD` int(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_polish_ci;
+
+--
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`ID`, `NAME`, `PASSWORD`, `EMAIL`, `YEAR_OLD`) VALUES
+(1, 'Marek', 'niemahasla', 'marek@gmail.com', 14),
+(2, 'Andrzej', '12345', 'andrzej@gmail.com', 19);
 
 --
 -- Indexes for dumped tables
@@ -248,7 +256,7 @@ ALTER TABLE `tags`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `ID` int(100) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables
